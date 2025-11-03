@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-
 //image loading libraries
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "../hed/stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
+#include "../hed/stb_image_write.h"
 
 int main(){
     int height,width,channels;
@@ -22,7 +20,7 @@ int main(){
                 int sum=0;
                 for (int i = x-mask/2; i < x+mask/2; i++){
                     for (int j = y-mask/2; j< y+mask/2;j++){
-                        int idx = (j*width+i)*channels+c;//calculates index on 1D array 
+                        int idx = (j*width+i)*channels+c;
                         sum += img[idx];
                     }
                 }
@@ -45,4 +43,3 @@ int main(){
     stbi_image_free(img);
     return 0;
 }
-
